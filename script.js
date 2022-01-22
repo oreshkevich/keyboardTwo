@@ -17,68 +17,72 @@ class Keyboard {
 
   createKeys() {
     const fragment = document.createDocumentFragment();
-    const keyLayout = [
-      "1",
-      "2",
-      "3",
-      "4",
-      "5",
-      "6",
-      "7",
-      "8",
-      "9",
-      "0",
-      "backspace",
-      "q",
-      "w",
-      "e",
-      "r",
-      "t",
-      "y",
-      "u",
-      "i",
-      "o",
-      "p",
-      "caps",
-      "a",
-      "s",
-      "d",
-      "f",
-      "g",
-      "h",
-      "j",
-      "k",
-      "l",
-      "enter",
-      "shift",
-      "z",
-      "x",
-      "c",
-      "v",
-      "b",
-      "n",
-      "m",
-      ",",
-      ".",
-      "?",
-      "space",
-    ];
+    const keyLayout = {
+      Digit1: "1",
+      Digit2: "2",
+      Digit3: "3",
+      Digit4: "4",
+      Digit5: "5",
+      Digit6: "6",
+      Digit7: "7",
+      Digit8: "8",
+      Digit9: "9",
+      Digit0: "0",
+      Minus: "-",
+      Equal: "=",
+      Backspace: "backspace",
+      KeyQ: "q",
+      KeyW: "w",
+      KeyE: "e",
+      KeyR: "r",
+      KeyT: "t",
+      KeyY: "y",
+      KeyU: "u",
+      KeyI: "i",
+      KeyO: "o",
+      KeyP: "p",
+      BracketLeft: "[",
+      BracketRight: "]",
+      CapsLock: "caps",
+      KeyA: "a",
+      KeyS: "s",
+      KeyD: "d",
+      KeyF: "f",
+      KeyG: "g",
+      KeyH: "h",
+      KeyJ: "j",
+      KeyK: "k",
+      KeyL: "l",
+      Semicolon: ";",
+      Quote: "'",
+      Enter: "enter",
+      ShiftLeft: "shift",
+      KeyZ: "z",
+      KeyX: "x",
+      KeyC: "c",
+      KeyV: "v",
+      KeyB: "b",
+      KeyN: "n",
+      KeyM: "m",
+      Comma: ",",
+      Period: ".",
+      Slash: "?",
+      Space: "space",
+    };
 
-    keyLayout.forEach((key) => {
+    for (let key in keyLayout) {
       const keyElement = document.createElement("button");
       const insertLineBreak =
-        ["backspace", "p", "enter", "?"].indexOf(key) !== -1;
-
+        ["backspace", "]", "enter", "?"].indexOf(keyLayout[key]) !== -1;
       keyElement.setAttribute("type", "button");
       keyElement.classList.add("keyboard__key");
-      keyElement.textContent = key.toLowerCase();
+      keyElement.setAttribute("data", key);
+      keyElement.textContent = keyLayout[key].toLowerCase();
       fragment.appendChild(keyElement);
-
       if (insertLineBreak) {
         fragment.appendChild(document.createElement("br"));
       }
-    });
-
+    }
     return fragment;
   }
 }
@@ -87,4 +91,13 @@ let keyboard = new Keyboard(null, null, []);
 
 window.addEventListener("DOMContentLoaded", function () {
   keyboard.init();
+});
+
+document.addEventListener("keydown", function (event) {
+  document.querySelectorAll(".keyboard__key").forEach((elem) => {
+    elem.classList.remove("active");
+  });
+  document
+    .querySelector('.keyboard__key[data="' + event.code + '"]')
+    .classList.add("active");
 });
