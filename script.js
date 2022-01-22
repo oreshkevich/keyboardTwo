@@ -1,8 +1,7 @@
 class Keyboard {
-  constructor(main, keysContainer, keys) {
+  constructor(main, keysContainer) {
     this.main = main;
     this.keysContainer = keysContainer;
-    this.keys = keys;
   }
 
   init() {
@@ -10,7 +9,6 @@ class Keyboard {
     this.keysContainer = document.createElement("div");
     this.keysContainer.classList.add("keyboard__keys");
     this.keysContainer.appendChild(this.createKeys());
-    this.keys = this.keysContainer.querySelectorAll(".keyboard__key");
     this.main.appendChild(this.keysContainer);
     document.body.appendChild(this.main);
   }
@@ -87,7 +85,7 @@ class Keyboard {
   }
 }
 
-let keyboard = new Keyboard(null, null, []);
+let keyboard = new Keyboard(null, null);
 
 window.addEventListener("DOMContentLoaded", function () {
   keyboard.init();
