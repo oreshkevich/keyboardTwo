@@ -5,7 +5,6 @@ class Keyboard {
   }
 
   init() {
-    this.main = document.createElement("div");
     this.keysContainer = document.createElement("div");
     this.keysContainer.classList.add("keyboard__keys");
     this.keysContainer.appendChild(this.createKeys());
@@ -84,12 +83,9 @@ class Keyboard {
     return fragment;
   }
 }
-
-let keyboard = new Keyboard(null, null);
-
-window.addEventListener("DOMContentLoaded", function () {
-  keyboard.init();
-});
+const main2 = document.getElementById("keyboard");
+let keyboard = new Keyboard(main2, null);
+keyboard.init();
 
 document.addEventListener("keydown", function (event) {
   document.querySelectorAll(".keyboard__key").forEach((elem) => {
