@@ -83,15 +83,28 @@ class Keyboard {
     return fragment;
   }
 }
-const main2 = document.getElementById("keyboard");
-let keyboard = new Keyboard(main2, null);
+const mainKeyboard = document.getElementById("keyboard");
+let keyboard = new Keyboard(mainKeyboard, null);
 keyboard.init();
 
-document.addEventListener("keydown", function (event) {
+const showColor = document.querySelector(".show-color");
+showColor.addEventListener("click", (event) => {
   document.querySelectorAll(".keyboard__key").forEach((elem) => {
-    elem.classList.remove("active");
+    elem.classList.toggle("keyboard__key--coloring");
   });
-  document
-    .querySelector('.keyboard__key[data="' + event.code + '"]')
-    .classList.add("active");
+});
+
+document.addEventListener("keydown", (event) => {
+  document.querySelectorAll(".keyboard__key").forEach((elem) => {
+    elem.style.backgroundColor = "";
+  });
+
+  document.querySelector(
+    '.keyboard__key[data="' + event.code + '"]'
+  ).style.backgroundColor = "red";
+});
+
+const hideKeyboard = document.querySelector(".show-keyboard");
+hideKeyboard.addEventListener("click", (event) => {
+  mainKeyboard.classList.toggle("keyboard--hidden");
 });
