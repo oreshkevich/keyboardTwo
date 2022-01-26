@@ -191,7 +191,10 @@
   background: #ad7fa8;
 }
 
-
+.keyboard__key:nth-last-child(1) {
+  width: 50%;
+  max-width: 424px;
+}
 /* .hide-keyboard {
   cursor: pointer;
   margin-top: 3px;
