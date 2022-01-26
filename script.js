@@ -27,7 +27,7 @@ class Keyboard {
       Digit0: "0",
       Minus: "-",
       Equal: "=",
-      Backspace: "backspace",
+      Backspace: "⇦",
       KeyQ: "Q",
       KeyW: "W",
       KeyE: "E",
@@ -70,7 +70,7 @@ class Keyboard {
     for (let key in keyLayout) {
       const keyElement = document.createElement("button");
       const insertLineBreak =
-        ["backspace", "]", "enter", "?"].indexOf(keyLayout[key]) !== -1;
+        ["⇦", "]", "enter", "?"].indexOf(keyLayout[key]) !== -1;
       keyElement.setAttribute("type", "button");
       keyElement.classList.add("keyboard__key");
       keyElement.setAttribute("data", key);
