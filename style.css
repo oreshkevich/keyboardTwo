@@ -218,8 +218,11 @@
   width: 32px;
   height: 20px;
   display: inline-block;
-  background: url(./i/iconsa.png) no-repeat 0 -100px;
+  background: url(./i/iconsa.png) no-repeat 0 -50px;
   z-index: 2;
+}
+.hide-keyboard {
+  background: url(./i/iconsa.png) no-repeat 0 -100px;
 }
 
 
@@ -232,7 +235,9 @@
   display: inline-block;
   background: url(./i/iconsa.png) no-repeat 0 -650px;
 }
-
+.hide-color {
+  background: url(./i/iconsa.png) no-repeat 0 -700px;
+}
 .show-hand {
   cursor: pointer;
   margin-top: 3px;
@@ -242,7 +247,9 @@
   display: inline-block;
   background: url(./i/iconsa.png) no-repeat 0 -200px;
 }
-
+.hide-hand {
+  background: url(./i/iconsa.png) no-repeat 0 -150px;
+}
 .keyboard--hidden {
 display: none;
 }

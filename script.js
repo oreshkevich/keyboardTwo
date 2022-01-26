@@ -89,6 +89,7 @@ keyboard.init();
 
 const showColor = document.querySelector(".show-color");
 showColor.addEventListener("click", (event) => {
+  showColor.classList.toggle("hide-color");
   document.querySelectorAll(".keyboard__key").forEach((elem) => {
     elem.classList.toggle("keyboard__key--coloring");
   });
@@ -104,13 +105,16 @@ document.addEventListener("keydown", (event) => {
   ).style.backgroundColor = "red";
 });
 
-const hideKeyboard = document.querySelector(".show-keyboard");
+const showKeyboard = document.querySelector(".show-keyboard");
 const showHand = document.querySelector(".show-hand");
 const rightHandOne = document.querySelector(".right-hand-one");
-hideKeyboard.addEventListener("click", (event) => {
+
+showKeyboard.addEventListener("click", (event) => {
+  showKeyboard.classList.toggle("hide-keyboard");
   mainKeyboard.classList.toggle("keyboard--hidden");
 });
 showHand.addEventListener("click", (event) => {
+  showHand.classList.toggle("hide-hand");
   rightHandOne.classList.toggle("active--hand");
   console.log("hi");
 });
