@@ -105,6 +105,12 @@ document.addEventListener("keydown", (event) => {
 });
 
 const hideKeyboard = document.querySelector(".show-keyboard");
+const showHand = document.querySelector(".show-hand");
+const rightHandOne = document.querySelector(".right-hand-one");
 hideKeyboard.addEventListener("click", (event) => {
   mainKeyboard.classList.toggle("keyboard--hidden");
+});
+showHand.addEventListener("click", (event) => {
+  rightHandOne.classList.toggle("active--hand");
+  console.log("hi");
 });

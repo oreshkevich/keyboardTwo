@@ -245,3 +245,22 @@ display: none;
 .active {
   background: #f50303; 
 }
+
+
+#hands #rhand1 {
+  background-position: -348px 0;
+}
+
+.right-hand-one {
+  display: none;
+  position: absolute;
+  width: 58px;
+  height: 100px;
+  z-index: 1;
+  zoom: 1;
+  opacity: 0.7;
+  background: url(i/hands2.png) no-repeat;
+}
+.active--hand {
+  display: block 
+ }
